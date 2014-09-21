@@ -9,7 +9,8 @@
 # this will be the target built.
 COMPILER = dcc
 PREPROCESSOR = dpp
-PRODUCTS = $(COMPILER) $(PREPROCESSOR)
+PRODUCTS = $(COMPILER) 
+##$(PREPROCESSOR)
 default: $(PRODUCTS)
 
 # Set up the list of source and object files
