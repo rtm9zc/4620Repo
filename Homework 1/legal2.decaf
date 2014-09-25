@@ -1,0 +1,74 @@
+/*Merge sort for an array passed in from stdin*/
+
+class Sortin{
+      void main() {
+      	   int[] theList = NewArray(10, int); //Not sure on array declaration
+	   for(int i = 0; i < theList.length(); i = i + 1){	      //Hopefully this is right
+	   	   Print("Please provide an integer to add to the list\n");
+		   theList[i] = ReadInteger();
+	   }
+	   mergeSort(theList, 0, theList.length()-1);
+	   for (int i = 0; i < theList.length() - 1; i = i+ 1){
+	       Print(theList[i]);
+	       Print(" ");
+	   }
+	   Print(theList[theList.length()-1]);
+	   Print("\n");
+	   return;
+      }
+      void mergeSort(int[] a, int start, int end){
+      	   if (end - start == 0){
+	      return;
+	   }
+	   if (end - start == 1){
+	      if (a[start] > a[end]){
+	      	     swap(a, start, end);
+	      }
+	      return;	 
+	   }
+	   else{
+		int pivot = start + (end-start)/2;
+		mergeSort(a, start, pivot);
+		mergeSort(a, pivot, end);
+		merge(a, start, pivot, end);
+		return;
+	   }
+      }
+      void swap(int[] a, int first, int second){
+      	   int temp = a[first];
+	   a[first] = a[second];
+	   a[second] = temp;
+	   return;
+      }
+      void merge(int[] a, int start, int pivot, int end){
+      	   int[] temp = NewArray(end-start+1, int);
+	   int tempP = 0;
+	   int frontP = start;
+	   int backP = pivot;
+	   while(frontP < pivot && backP < end){
+	   	if (a[frontP] < a[backP]){
+		   temp[tempP] = a[frontP];
+		   frontP = frontP + 1;
+		}
+		else{
+		   temp[tempP] = a[backP];
+		   backP = backP + 1;
+		}
+		tempP = tempP + 1;
+	   }
+	   for(int i = tempP; i < temp.length(); i = i + 1){
+	   	 if (frontP < pivot){
+		    temp[i] = a[frontP];
+		    frontP = frontP + 1;
+		 }
+		 else{
+		    temp[i] = a[backP];
+		    backP = backP + 1;
+		 }
+	   }
+	   for(int i = 0; i < temp.length(); i = i+1){
+	   	 a[start+i] = temp[i];
+	   }
+	   return;
+      }
+}

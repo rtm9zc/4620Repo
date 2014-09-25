@@ -1,0 +1,16 @@
+class Fizzbuzz {
+      void main() {
+      	   for (int i = 1; i <=100; i = i++){//i++ not correct syntax in decaf
+	       if (i % 33 == 0) {
+	       	  Println("fizzbuzz"); //println not valid
+	       }
+	       else if (i % 3 == 0){
+	       	  Println("fizz");
+	       }
+	       else if (i % 11 == 0) {
+	       	  Println("buzz");
+	       }
+	   }
+	   return;
+      }
+}

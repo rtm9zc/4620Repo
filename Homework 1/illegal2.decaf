@@ -1,0 +1,73 @@
+//changed some stuff for array construction and calls to print
+
+class Sortin{
+      void main() {
+      	   int[] theList = New Array(10, int); //NewArray is one kwd
+	   for(int i = 0; i < theList.length(); i = i + 1){
+	   	   Print("Please provide an integer to add to the list\n");
+		   theList[i] = ReadInteger();
+	   }
+	   the List = mergeSort(theList, 0, theList.length()-1); // Trying to return a void type
+	   for (int i = 0; i < theList.length() - 1; i = i+ 1){
+	       Print(theList[i] + " "); //pretty sure this isn't legal
+	   }
+	   Print(theList[theList.length()-1]);
+	   Print("\n");
+	   return;
+      }
+      void mergeSort(int[] a, int start, int end){
+      	   if (end - start == 0){
+	      return;
+	   }
+	   if (end - start == 1){
+	      if (a[start] > a[end]){
+	      	     swap(a, start, end);
+	      }
+	      return;	 
+	   }
+	   else{
+		int pivot = start + (end-start)/2;
+		mergeSort(a, start, pivot);
+		mergeSort(a, pivot, end);
+		merge(a, start, piv..ot, end);
+		return;
+	   }
+      }
+      void swap(int[] a, int first, int second){
+      	   int temp = a[first];
+	   a[first] = a[second];
+	   a[second] = temp;
+	   return
+      }
+      void merge(int[] a, int start, int pivot, int end){
+      	   int[] temp = New int[end-start+1]; //Not valid declaration
+	   int tempP = 0;
+	   int frontP = start;
+	   int backP = pivot;
+	   while(frontP < pivot && backP < end){
+	   	if (a[frontP] < a[backP]){
+		   temp[tempP] = a[frontP];
+		   frontP = frontP + 1;
+		}
+		else{
+		   temp[tempP] = a[backP];
+		   backP = backP + 1;
+		}
+		tempP = tempP + 1;
+	   }
+	   for(int i = tempP; i < temp.length(); i = i + 1){
+	   	 if (frontP < pivot){
+		    temp[i] = a[frontP];
+		    frontP = frontP + 1;
+		 }
+		 else{
+		    temp[i] = a[backP];
+		    backP = backP + 1;
+		 }
+	   }
+	   for(int i = 0; i < temp.length(); i = i+1){
+	   	 a[start+i] = temp[i];
+	   }
+	   return;
+      }
+}

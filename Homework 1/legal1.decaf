@@ -1,0 +1,19 @@
+/*Classic fizzbuzz. Goes through integers one to one hundred, 
+prints "fizz" for divisible by 3, "buzz" for 11*/
+
+class Fizzbuzz {
+      void main() {
+      	   for (int i = 1; i <=100; i = i+1){
+	       if (i % 33 == 0) {
+	       	  Print("fizzbuzz\n");
+	       }
+	       else if (i % 3 == 0){
+	       	  Print("fizz\n");
+	       }
+	       else if (i % 11 == 0) {
+	       	  Print("buzz\n");
+	       }
+	   }
+	   return;
+      }
+}
